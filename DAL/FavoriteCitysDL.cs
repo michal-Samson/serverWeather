@@ -17,18 +17,21 @@ namespace DAL
         {
             return (DB.FavoriteCitys.Where(f => f.IdUser == id).ToList());
         }
-        public void AddCity(FavoriteCitys favoriteCitys)
+        public string AddCity(FavoriteCitys favoriteCitys)
         {
-            
+            if (DB.FavoriteCitys.Count(u => u.IdUser == favoriteCitys.IdUser && u.IdName == favoriteCitys.IdName) < 1)
+            {
                 DB.FavoriteCitys.Add(favoriteCitys);
                 DB.SaveChanges();
-            
+                return ("save");
+            }
+            return ("no");
         }
-
-        public void DeleteCityById(string idUser, string idCity)
+        public List<FavoriteCitys> DeleteCityById(string idUser, string idCity)
         {
             DB.FavoriteCitys.Remove(DB.FavoriteCitys.Where(u => u.IdUser == idUser && u.IdName == idCity).FirstOrDefault());
             DB.SaveChanges();
+                return (DB.FavoriteCitys.Where(f => f.IdUser == idUser).ToList());
         }
     }
 

@@ -8,7 +8,7 @@ namespace BL
    public interface IFavoriteCitysBL
     {
         List<FavoriteCitys> GetCitysById(string id);
-        void AddCity(FavoriteCitys favoriteCitys);
-        void DeleteCityById(string idUser,string idCity );
+        string AddCity(FavoriteCitys favoriteCitys);
+        List<FavoriteCitys> DeleteCityById(string idUser,string idCity );
     }
 }

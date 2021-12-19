@@ -17,14 +17,14 @@ namespace BL
         {
             return (favoriteCitysDL.GetCitysById(id));
         }
-        public void AddCity(FavoriteCitys favoriteCitys)
+        public string AddCity(FavoriteCitys favoriteCitys)
         {
-            favoriteCitysDL.AddCity(favoriteCitys);
+           return favoriteCitysDL.AddCity(favoriteCitys);
         }
 
-        public void DeleteCityById(string idUser, string idCity)
+        public List<FavoriteCitys> DeleteCityById(string idUser, string idCity)
         {
-            favoriteCitysDL.DeleteCityById(idUser, idCity);
+           return favoriteCitysDL.DeleteCityById(idUser, idCity);
         }
     }
 }

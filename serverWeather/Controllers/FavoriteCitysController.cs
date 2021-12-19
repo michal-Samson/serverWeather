@@ -27,19 +27,18 @@ namespace serverWeather.Controllers
 
         [HttpPost]
         [Route("AddCity")]
-        public void AddCity(FavoriteCitys favoriteCitys)
+        public string AddCity(FavoriteCitys favoriteCitys)
         {
 
-            favoriteCitysBL.AddCity(favoriteCitys);
-
+        return  favoriteCitysBL.AddCity(favoriteCitys);
         }
         [HttpDelete("DeleteCityById")]
-        public void DeleteCityById(string id )
+        public List<FavoriteCitys> DeleteCityById(string id )
         {
             var idUser = id.Split("@")[0];
             var idName = id.Split("@")[1];
 
-            favoriteCitysBL.DeleteCityById(idUser, idName);
+           return favoriteCitysBL.DeleteCityById(idUser, idName);
 
         }
 
