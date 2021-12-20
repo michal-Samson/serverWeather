@@ -29,7 +29,7 @@ namespace DAL
         }
         public List<FavoriteCitys> DeleteCityById(string idUser, string idCity)
         {
-        https://localhost:44342/DB.FavoriteCitys.Remove(DB.FavoriteCitys.Where(u => u.IdUser == idUser && u.IdName == idCity).FirstOrDefault());
+        DB.FavoriteCitys.Remove(DB.FavoriteCitys.Where(u => u.IdUser == idUser && u.IdName == idCity).FirstOrDefault());
             DB.SaveChanges();
                 return (DB.FavoriteCitys.Where(f => f.IdUser == idUser).ToList());
         }
